@@ -16,7 +16,7 @@ WORKDIR /app
 # COPY --from=builder /usr/local/bin /usr/local/bin
 
 COPY --from=builder /usr/src/app/wheels /wheels
-COPY --from=builder /usr/src/app/requirements.txt .
+COPY --from=builder /app/requirements.txt .
 
 RUN pip install --no-cache /wheels/* --index http://10.2.5.147:8080 --trusted-host 10.2.5.147
 
